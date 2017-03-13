@@ -1,0 +1,11 @@
+html {
+}
+
+body {
+	margin: 5%;
+	background: #B5B5B5;
+}
+
+.copy-to-clipboard {
+	cursor: pointer;
+}

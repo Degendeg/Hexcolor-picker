@@ -1,13 +1,32 @@
-$(document).ready(function () {
-	
-	$("input").change(function(this.jscolor) {
-		document.getElementById('body').style.backgroundColor = '#' + jscolor
-	});
-	
-	var clipboard = new Clipboard('.copy-to-clipboard');
+const clipboard1 = new Clipboard('.copy-1');
+const clipboard2 = new Clipboard('.copy-2');
+const favColor = localStorage.getItem('jscolor');
 
-	clipboard.on('success', function(e) {
-		$('.x').show().fadeOut('slow');
-		e.clearSelection();
-	});
+clipboard1.on('success', (e) => {
+	$('.alert-copy').show().fadeOut('slow');
+	e.clearSelection();
+});
+
+clipboard2.on('success', (e) => {
+	$('.alert-copy').show().fadeOut('slow');
+	e.clearSelection();
+});
+
+const update = (jscolor) => {
+	$('#body').css('background-color', `#${jscolor}`);
+};
+
+const fav = (inputId) => {
+	const hex = document.getElementById(inputId).value
+	localStorage.setItem('jscolor', hex);
+	$('.alert-saved').show().fadeOut('slow');
+	$('#fav-color').text(hex);
+};
+
+$(document).ready(() => {
+	if (favColor) {
+		$('#fav-color').text(favColor);
+	} else {
+		$('#fav-color').hide();
+	}
 });

@@ -1,11 +1,12 @@
-html {
-}
-
 body {
 	margin: 5%;
 	background: #B5B5B5;
 }
 
-.copy-to-clipboard {
+.input-group-addon {
 	cursor: pointer;
+}
+
+.b-l-none {
+	border-left: none;
 }
